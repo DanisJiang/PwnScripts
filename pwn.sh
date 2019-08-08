@@ -3,6 +3,7 @@ if [ $# -eq 0 ]; then
     echo "pwn.sh [filename] ([ip]) ([port]) ([libcname])"
     exit
 elif [ $# -gt 0 ]; then
+    chmod +x $1
     filename="pwn"$1".py"
     touch $filename
     echo "from PwnContext import *
@@ -15,7 +16,7 @@ except ImportError:
 
 if __name__ == '__main__':        
     # context.terminal = ['tmux', 'splitw', '-h'] # uncomment this if you use tmux
-    # context.log_level = 'debug'
+    context.log_level = 'debug'
     # functions for quick script
     s       = lambda data               :ctx.send(str(data))        #in case that data is an int
     sa      = lambda delim,data         :ctx.sendafter(str(delim), str(data)) 
@@ -44,7 +45,8 @@ if __name__ == '__main__':
         echo "    ctx.remote_libc = './libc.so.6'
     ctx.debug_remote_libc = True"  >> $filename
     fi
-    echo "    rs('remote')
+    echo "    rs()
+    # rs('remote')
     print(ctx.libc.path)" >> $filename
     echo ""  >> $filename
     echo ""  >> $filename
