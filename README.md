@@ -16,5 +16,5 @@ pwn.sh hacknote chall.pwnable.tw 10102 libc.so.6
 
 When I start a new pwn, I always copy an old script and change the filename, libcname, ip and port one by one. This is so meaningless.
 
-The framework of the pwn script is welpwn. It is so easy to 
+The framework of the pwn script is welpwn, which is so easy to 
 specify libc for the program.
