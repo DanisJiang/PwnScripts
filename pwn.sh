@@ -53,4 +53,12 @@ if __name__ == '__main__':
     echo "    irt()" >> $filename
 fi
     echo "[*] created $filename successfully!"
+    echo ""
+    echo "[*] file "$1"------------------------------------"
+    echo ""
+    file $1
+    echo ""
+    echo "[*] checksec "$1"------------------------------------"
+    echo ""
+    checksec $1
     code $filename --user-data-dir
