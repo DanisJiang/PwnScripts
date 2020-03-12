@@ -28,8 +28,6 @@ if __name__ == '__main__':
     rs      = lambda *args, **kwargs    :ctx.start(*args, **kwargs)
     dbg     = lambda gs='', **kwargs    :ctx.debug(gdbscript=gs, **kwargs)
     # misc functions
-    uu32    = lambda data   :u32(data.ljust(4, '\0'))
-    uu64    = lambda data   :u64(data.ljust(8, '\0'))
     " > $filename
     
     echo "    ctx.binary = './"$1"'" >> $filename
@@ -47,7 +45,7 @@ if __name__ == '__main__':
     fi
     echo "    rs()
     # rs('remote')
-    print(ctx.libc.path)" >> $filename
+    # print(ctx.libc.path)" >> $filename
     echo ""  >> $filename
     echo ""  >> $filename
     echo "    irt()" >> $filename
